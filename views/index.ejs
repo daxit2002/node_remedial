@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Listing</title>
+    <style>
+        #daxit {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #daxit td,
+        #daxit th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #daxit tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #daxit tr:hover {
+            background-color: #ddd;
+        }
+
+        #daxit th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Property Listing</h1>
+    <table id="daxit" border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Category Name</th>
+                <th>Description</th>
+                <th>Area</th>
+                <th>Property Image</th>
+                <th>Price</th>
+                <th>Number of Years</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% property.forEach((item, index)=> { %>
+                <tr>
+                    <td>
+                        <%= item.property_name %>
+                    </td>
+                    <td>
+                        <%= item.property_category_name %>
+                    </td>
+                    <td>
+                        <%= item.description %>
+                    </td>
+                    <td>
+                        <%= item.area %>
+                    </td>
+                    <td><img src="../uploads/<%= item.property_picture %>" width="50" height="50"
+                            alt="<%= item.property_name %>"></td>
+                    <td>
+                        <%= item.price %>
+                    </td>
+                    <td>
+                        <%= item.number_of_years %>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+
+    <a href="/addProperty">Add Property</a>
+
+
+</body>
+
+</html>
